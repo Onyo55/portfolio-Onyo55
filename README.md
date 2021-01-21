@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## Usersテーブル
 
-* Ruby version
+| Column             | Type   | Option      | 
+| ------------------ | ------ | ----------- | 
+| name               | string | null: false | 
+| email              | siring | null: false | 
+| encrypted_password | string | null: false | 
 
-* System dependencies
+## Association
+has_many :themas
+has_many :comments
 
-* Configuration
+## Themasテーブル
 
-* Database creation
+| Column     | Type       | Option      | 
+| ---------- | ---------- | ----------- | 
+| name       | string     | null: false | 
+| sub_thema1 | string     | null: false | 
+| sub_thema2 | string     | null: false | 
+| user_id    | references |             | 
 
-* Database initialization
+## Association
+belongs_to :user
+has_many :comments
 
-* How to run the test suite
+## Commentsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column        | Type       | Option      | 
+| ------------- | ---------- | ----------- | 
+| text          | string     | null: false | 
+| sub_thema_num | integer    | null: false | 
+| thema_id      | references |             | 
+| user_id       | references |             | 
 
-* Deployment instructions
-
-* ...
+## Association
+belongs_to :user
+belongs_to :thema
