@@ -11,16 +11,16 @@
 | encrypted_password | string | null: false | 
 
 ## Association
-has_many :themas
+has_many :themes
 has_many :comments
 
-## Themasテーブル
+## Themesテーブル
 
 | Column     | Type       | Option      | 
 | ---------- | ---------- | ----------- | 
 | name       | string     | null: false | 
-| sub_thema1 | string     | null: false | 
-| sub_thema2 | string     | null: false | 
+| sub_theme1 | string     | null: false | 
+| sub_theme2 | string     | null: false | 
 | user_id    | references |             | 
 
 ## Association
@@ -38,4 +38,4 @@ has_many :comments
 
 ## Association
 belongs_to :user
-belongs_to :thema
+belongs_to :theme
