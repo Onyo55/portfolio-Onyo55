@@ -16,12 +16,12 @@ has_many :comments
 
 ## Themesテーブル
 
-| Column     | Type       | Option      | 
-| ---------- | ---------- | ----------- | 
-| name       | string     | null: false | 
-| sub_theme1 | string     | null: false | 
-| sub_theme2 | string     | null: false | 
-| user_id    | references |             | 
+| Column          | Type       | Option      | 
+| --------------- | ---------- | ----------- | 
+| main_name       | string     | null: false | 
+| sub_theme1      | string     | null: false | 
+| sub_theme2      | string     | null: false | 
+| user_id         | references |             | 
 
 ## Association
 belongs_to :user
