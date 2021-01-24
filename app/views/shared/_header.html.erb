@@ -2,6 +2,7 @@
   <div class="logo">
     <a href="#" >level</a>
   </div>
+    <%= link_to "テーマ作成", new_theme_path, class: "theme-new" %>
   <div class="nav">
     <ul class='lists-right'>
       <% if user_signed_in? %>

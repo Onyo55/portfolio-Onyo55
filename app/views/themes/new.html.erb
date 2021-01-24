@@ -1,0 +1,28 @@
+<div class="new-theme-wrap">
+  <h1 class="post-theme">テーマ投稿</h1>
+  <%= form_with model: @theme,class:"theme-form", url: themes_path, local: true do |f| %>
+    <%= render 'shared/error_message', model: f.object %>
+
+    <div class="theme-group">
+      <div class="theme-text-wrap">
+        <label class="theme-text">メインテーマ</label>
+      </div>
+      <%= f.text_area :main_theme, class:"input-theme", id:"main_theme", placeholder:"メインテーマ"%>
+    </div>
+
+    <div class="sub-theme-group">
+      <div class="theme-text-wrap">
+        <label class="theme-text">サブテーマ</label>
+      </div>
+      <div class="sub-theme-wrap">
+        <%= f.text_area :sub_theme_1, class:"input-sub-blue" %>
+        <p class="or">OR</p>
+        <%= f.text_area :sub_theme_2, class:"input-sub-red"%>
+      </div>
+    </div>
+
+    <div class="theme-submit">
+      <%= f.submit "投稿する", class:"theme-submit-btn"%>
+    </div>
+  <%end%>
+</div>
