@@ -4,6 +4,7 @@
 
 .mail-wrapper{
   background-color:#293657;
+  height: 100vh;
 }
 
 .title-content{
@@ -35,30 +36,31 @@
 }
 
 .thema-wrapper{
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   background-color: #293657;
 }
 
-.thema-content{
+.theme-content{
   background-color: white;
   height: 100px;
-  padding:10px;
-  margin:5px;
-}
-
-.category{
-  padding: 5px;
-  width: 150px;
-  color: #293657;
-}
-
-.thema{
-  margin-top: 2px;
-  padding: 5px;
+  padding:10px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 50px;
-  color: #293657;
+  justify-content: space-between;
+}
+
+
+.main-theme{
+  font-size: 25px;
+}
+
+.sub-theme-blue{
+  padding: 10px 20px;
+  background-color: #6E91EB;
+}
+
+.sub-theme-red{
+  padding: 10px 20px;
+  background-color:#EB9886;
 }
