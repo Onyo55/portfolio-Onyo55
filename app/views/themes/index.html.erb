@@ -14,17 +14,18 @@
       </div>
   </div>
 
-  <div class="thema-wrapper">
-    <div class="theme-content">
-      <h3 class="main-theme">テーマ</h3>
-      <ul class="sub-thema-wrap">
-        <li class="sub-theme-blue">A</li>
-        <li class="theme-or"> or </li> 
-        <li class="sub-theme-red"> B </li>
-      </ul>
+  <% @themes.each do |theme|%>
+    <div class="thema-wrapper">
+      <div class="theme-content">
+        <h3 class="main-theme"><%=theme.main_theme%></h3>
+        <ul class="sub-thema-wrap">
+          <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
+          <li class="theme-or"> or </li> 
+          <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
+        </ul>
+      </div>
     </div>
-  </div>
-
+  <% end %>
     
 </div>
 

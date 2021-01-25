@@ -2,6 +2,7 @@ class ThemesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @themes = Theme.all
   end
 
   def new
