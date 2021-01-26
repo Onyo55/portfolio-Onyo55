@@ -14,32 +14,21 @@
       </div>
   </div>
 
-  <div class="thema-wrapper">
-    <div class="thema-content">
-      <h3 class="category">カテゴリー</h3>
-      <div class="thema">
-        <h3 class="main-thema">テーマ</h3>
-        <p class="sub-thema">A or B</p>
+  <% @themes.each do |theme|%>
+    <%= link_to theme_path(theme.id) do %>
+      <div class="theme-wrapper">
+        <div class="theme-content">
+          <h3 class="main-theme"><%=theme.main_theme%></h3>
+          <ul class="sub-theme-list">
+            <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
+            <li class="theme-or"> or </li> 
+            <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="thema-content">
-      <h3 class="category">カテゴリー</h3>
-      <div class="thema">
-        <h3 class="main-thema">テーマ</h3>
-        <p class="sub-thema">A or B</p>
-      </div>
-    </div>
-
-    <div class="thema-content">
-      <h3 class="category">カテゴリー</h3>
-      <div class="thema">
-        <h3 class="main-thema">テーマ</h3>
-        <p class="sub-thema">A or B</p>
-      </div>
-    </div>
+    <% end %>
+  <% end %>
     
 </div>
 
-</div>
 <%= render "shared/footer" %>
