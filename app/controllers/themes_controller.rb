@@ -18,6 +18,10 @@ class ThemesController < ApplicationController
     end
   end
 
+  def show
+    @theme = Theme.find(params[:id])
+  end
+
   private
 
   def theme_params

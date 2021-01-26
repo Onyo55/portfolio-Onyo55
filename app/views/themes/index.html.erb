@@ -15,16 +15,18 @@
   </div>
 
   <% @themes.each do |theme|%>
-    <div class="theme-wrapper">
-      <div class="theme-content">
-        <h3 class="main-theme"><%=theme.main_theme%></h3>
-        <ul class="sub-theme-list">
-          <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
-          <li class="theme-or"> or </li> 
-          <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
-        </ul>
+    <%= link_to theme_path(theme.id) do %>
+      <div class="theme-wrapper">
+        <div class="theme-content">
+          <h3 class="main-theme"><%=theme.main_theme%></h3>
+          <ul class="sub-theme-list">
+            <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
+            <li class="theme-or"> or </li> 
+            <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
     
 </div>
