@@ -14,9 +14,18 @@ class CommentsController < ApplicationController
       @comments = @theme.comments
       render "themes/show"
     end
-
   end
 
+  def sort
+    @theme = Theme.find(params[:id])
+    @comment = Comment.new
+    if params[:keyword] == "new"
+      @comments = Comment.where(theme_id: @theme.id).order('created_at DESC')
+    elsif params[:keyword] == "old"
+      @comments = Comment.where(theme_id: @theme.id).order('created_at ASC')
+    end
+    render "themes/show"
+  end
 
   private
     def comment_params

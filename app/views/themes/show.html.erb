@@ -40,8 +40,12 @@
     <div class="menu-box">
       <h2 class="sort-text">並べ替え</h2>
       <div class="sort-menu">
+        <ul>
+          <li><%= link_to "投稿の新しい順", comments_sort_theme_path(keyword: "new")%></li>
+          <li><%= link_to "投稿の古い順", comments_sort_theme_path(keyword: "old")%></li>
+        </ul>
       </div>
-    </div>  
+    </div> 
 
     <div class="comment-box">
 
