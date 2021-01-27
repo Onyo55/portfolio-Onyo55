@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_124427) do
+ActiveRecord::Schema.define(version: 2021_01_26_075524) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "text", null: false
+    t.integer "sub_theme_num", null: false
+    t.bigint "user_id"
+    t.bigint "theme_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["theme_id"], name: "index_comments_on_theme_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "themes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "main_theme", null: false
@@ -35,5 +46,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_124427) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "themes"
+  add_foreign_key "comments", "users"
   add_foreign_key "themes", "users"
 end

@@ -4,28 +4,39 @@
   <div class="theme-box">
     <h1 class="main-theme-show">テーマ</h1>
     <ul class="sub-theme-show">
-      <li class="sub-blue">ネコ</li>
+      <li class="sub-blue"><%=@theme.sub_theme_1%></li>
       <li class="sub-or">or</li>
-      <li class="sub-red">キトゥン</li>
+      <li class="sub-red"><%=@theme.sub_theme_2%></li>
     </ul>
   </div>
 
-  <div class="post-box">
+  <%= form_with model: [@theme, @comment],class:"post-form", local: true do |f| %>
     <ul class="post-menu">
-      <li class="sub-blue">ネコ<li>
-      <li class="sub-or">中立</li>
-      <li class="sub-red">キトゥン</li>
+      <label class="sub-blue sub-label">
+        <li class="sub-li">
+          <%= f.radio_button :sub_theme_num, 1 %><%=@theme.sub_theme_1%>
+        </li>
+      </label>
+      <label class="sub-red sub-label">
+        <li class="sub-li">
+          <%= f.radio_button :sub_theme_num, 2 %><%=@theme.sub_theme_2%>
+        </li>
+      </label>
+      <label class="sub-pur sub-label">
+        <li class="sub-li">
+          <%= f.radio_button :sub_theme_num, 3 %>中立
+        </li>
+      </label>
     </ul>
-    <div class="comment red">
-        <div class="comment-info">
-          <h3 class="user-name">ユーザー名</h3>
-          <p class="created-at">11:11:11</p>
-        </div>
-        <p>nekoneko<br>aaa</p>
+    <div class="comment-post">
+      <%= f.text_area :text, class:"post-text"%>
+      <div class="post-menu">
+        <%= f.submit "投稿する", class:"post-submit"%>
       </div>
-  </div>
+    </div> 
+  <% end %>
 
-  <div class="content-box">
+  <div class="content-wrap">
     <div class="menu-box">
       <h2 class="sort-text">並べ替え</h2>
       <div class="sort-menu">
@@ -33,20 +44,17 @@
     </div>  
 
     <div class="comment-box">
-      <div class="comment red">
-        <div class="comment-info">
-          <h3 class="user-name">ユーザー名</h3>
-          <p class="created-at">11:11:11</p>
+
+      <% @comments.each do |comment|%>
+        <div class="comment <%=sub_theme_color(comment)%>">
+          <div class="comment-info">
+            <h3 class="user-name"><%=comment.user.name%></h3>
+            <p class="created-at"><%=comment.created_at%></p>
+          </div>
+          <%=comment.text%>
         </div>
-        <p>nekoneko<br>aaa</p>
-      </div>
-      <div class="comment blue">
-      nekoneko<br>aaa
-      </div>
-      <div class="comment pur">
-      nekoneko<br>aaa
-      </div>
+      <% end %>
+
     </div>
   </div>
 </div>
-
