@@ -21,6 +21,7 @@ class ThemesController < ApplicationController
   def show
     @theme = Theme.find(params[:id])
     @comment = Comment.new
+    @comments = Comment.all.includes(:user)
   end
 
   private

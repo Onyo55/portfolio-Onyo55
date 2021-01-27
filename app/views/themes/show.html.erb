@@ -44,13 +44,17 @@
     </div>  
 
     <div class="comment-box">
-      <div class="comment red">
-        <div class="comment-info">
-          <h3 class="user-name">ユーザー名</h3>
-          <p class="created-at">11:11:11</p>
+      <% @comments.each do |comment|%>
+        <div class="comment ">
+          <div class="comment-info">
+            <h3 class="user-name"><%=comment.user.name%></h3>
+            <p class="created-at"><%=comment.created_at%></p>
+          </div>
+          <%=comment.text%>
         </div>
-        <p>nekoneko<br>aaa</p>
-      </div>
+      <% end %>
+
+
       <div class="comment blue">
       nekoneko<br>aaa
       </div>
