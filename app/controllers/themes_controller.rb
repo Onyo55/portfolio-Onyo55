@@ -20,6 +20,7 @@ class ThemesController < ApplicationController
 
   def show
     @theme = Theme.find(params[:id])
+    @comment = Comment.new
   end
 
   private
