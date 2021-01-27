@@ -10,7 +10,7 @@
     </ul>
   </div>
 
-  <%= form_with model: @comment,class:"post-form", url: themes_path, local: true do |f| %>
+  <%= form_with model: [@theme, @comment],class:"post-form", local: true do |f| %>
     <ul class="post-menu">
       <label class="sub-blue sub-label">
         <li class="sub-li">
