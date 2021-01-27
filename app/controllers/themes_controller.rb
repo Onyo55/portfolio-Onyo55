@@ -21,7 +21,7 @@ class ThemesController < ApplicationController
   def show
     @theme = Theme.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.all.includes(:user)
+    @comments = Comment.all.includes(:user).order('created_at DESC')
   end
 
   private

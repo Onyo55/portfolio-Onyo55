@@ -44,8 +44,9 @@
     </div>  
 
     <div class="comment-box">
+    
       <% @comments.each do |comment|%>
-        <div class="comment ">
+        <div class="comment <%=sub_theme_color(comment)%>">
           <div class="comment-info">
             <h3 class="user-name"><%=comment.user.name%></h3>
             <p class="created-at"><%=comment.created_at%></p>
@@ -54,13 +55,6 @@
         </div>
       <% end %>
 
-
-      <div class="comment blue">
-      nekoneko<br>aaa
-      </div>
-      <div class="comment pur">
-      nekoneko<br>aaa
-      </div>
     </div>
   </div>
 </div>
