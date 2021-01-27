@@ -4,9 +4,9 @@
   <div class="theme-box">
     <h1 class="main-theme-show">テーマ</h1>
     <ul class="sub-theme-show">
-      <li class="sub-blue">ネコ</li>
+      <li class="sub-blue"><%=@theme.sub_theme_1%></li>
       <li class="sub-or">or</li>
-      <li class="sub-red">キトゥン</li>
+      <li class="sub-red"><%=@theme.sub_theme_2%></li>
     </ul>
   </div>
 
@@ -44,7 +44,7 @@
     </div>  
 
     <div class="comment-box">
-    
+
       <% @comments.each do |comment|%>
         <div class="comment <%=sub_theme_color(comment)%>">
           <div class="comment-info">
@@ -58,4 +58,3 @@
     </div>
   </div>
 </div>
-

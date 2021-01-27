@@ -97,10 +97,11 @@
 
 .comment-box{
   width: 75%;
-  height: 500px;
+  height: 600px;
   border-radius: 10px;
   background-color: #DCE3DE;
   padding: 10px;
+  overflow:auto;
 }
 
 .comment{
