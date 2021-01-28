@@ -42,16 +42,16 @@
       <div class="sort-menu">
         <h3>通常</h3>
         <ul>
-          <li><%= link_to "投稿の新しい順", comments_sort_theme_path(keyword: "new")%></li>
-          <li><%= link_to "投稿の古い順", comments_sort_theme_path(keyword: "old")%></li>
+          <li><button type = "button" id="new">投稿の新しい順</button></li>
+          <li><button type = "button" id="old">投稿の古い順</button></li>
         </ul>
       </div>
     </div> 
 
-    <div class="comment-box">
+    <div class="comment-box" id="combox">
 
-      <% @comments.each do |comment|%>
-        <div class="comment <%=sub_theme_color(comment)%>">
+      <% @comments.each_with_index do |comment, i|%>
+        <div class="comment <%=sub_theme_color(comment)%>", id="<%=i%>">
           <div class="comment-info">
             <h3 class="user-name"><%=comment.user.name%></h3>
             <p class="created-at"><%=comment.created_at%></p>
