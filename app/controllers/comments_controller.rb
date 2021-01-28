@@ -19,21 +19,28 @@ class CommentsController < ApplicationController
   def sort
     @theme = Theme.find(params[:id])
     @comment = Comment.new
-    if params[:keyword] == "new"
-      @comments = Comment.where(theme_id: @theme.id).order('created_at DESC')
-    elsif params[:keyword] == "old"
-      @comments = Comment.where(theme_id: @theme.id).order('created_at ASC')
+    case params[:keyword]
+    when "new"
+      @comments = comments_order('created_at DESC')
+    when "old"
+      @comments = comments_order('created_at ASC')
     end
     render "themes/show"
   end
 
   private
-    def comment_params
-      params.require(
-        :comment
-      ).permit(
-        :text,:sub_theme_num
-      ).merge(user_id: current_user.id, theme_id: params[:theme_id])
-    end
+
+  def comment_params
+    params.require(
+      :comment
+    ).permit(
+      :text,:sub_theme_num
+    ).merge(user_id: current_user.id, theme_id: params[:theme_id])
+  end
+
+  def comments_order(sc)
+    @theme.comments.order(sc)
+  end
 
 end
+
