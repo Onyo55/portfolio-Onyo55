@@ -45,13 +45,15 @@
           <li><button type = "button" id="new">投稿の新しい順</button></li>
           <li><button type = "button" id="old">投稿の古い順</button></li>
         </ul>
+        <ul>
+          <li><button type = "button" id="nc-new">色の連続なし投稿の新しい順</button></li>
       </div>
     </div> 
 
-    <div class="comment-box" id="combox">
+    <div class="comment-box" id="com-box">
 
       <% @comments.each_with_index do |comment, i|%>
-        <div class="comment <%=sub_theme_color(comment)%>", id="<%=i%>">
+        <div class="comment", data-id="<%=i%>", data-color=<%=sub_theme_color(comment)%>>
           <div class="comment-info">
             <h3 class="user-name"><%=comment.user.name%></h3>
             <p class="created-at"><%=comment.created_at%></p>
