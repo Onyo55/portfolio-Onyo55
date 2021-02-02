@@ -17,7 +17,9 @@ function post(){
           break;
       }
     })
-  }) 
+  })
+
+  
 }
 
 window.addEventListener('load', post)

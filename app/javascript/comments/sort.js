@@ -32,14 +32,14 @@ function sort (){
 
   btnDcNew.addEventListener('click',function(){
     arrCom.sort(orderDesc)
-    discontinuousSort(arrCom).forEach(function(com){
+    discontinuousSort(arrCom).reverse().forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   }) 
 
   btnDcOld.addEventListener('click',function(){
     arrCom.sort(orderAsc)
-    discontinuousSort(arrCom).forEach(function(com){
+    discontinuousSort(arrCom).reverse().forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   })
@@ -71,7 +71,7 @@ function sort (){
       let sliceArr = arr.slice(y)
       let result = sliceArr.every(c => c.color == sliceArr[0].color)
       if (result){
-        return arr.reverse()
+        return arr
       }
       while(arr[x].color == arr[y].color){
         let t = arr[y]
