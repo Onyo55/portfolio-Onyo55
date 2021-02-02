@@ -40,7 +40,6 @@
     <div class="menu-box">
       <h2 class="sort-text">並べ替え</h2>
       <div class="sort-menu">
-        <h3>通常</h3>
         <ul>
           <li><button type = "button" id="new">投稿の新しい順</button></li>
           <li><button type = "button" id="old">投稿の古い順</button></li>
@@ -57,7 +56,7 @@
         <div class="comment", data-id="<%=i%>", data-color=<%=sub_theme_color(comment)%>>
           <div class="comment-info">
             <h3 class="user-name"><%=comment.user.name%></h3>
-            <p class="created-at"><%=comment.created_at%></p>
+            <p class="created-at"><%=l comment.created_at%></p>
           </div>
           <%=comment.text%>
         </div>
