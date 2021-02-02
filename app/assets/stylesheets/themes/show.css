@@ -72,7 +72,7 @@
   width: 75%;
 }
 
-.post-text{
+.post-text-area{
   width: 100%;
   resize: none;
   height: 70%;
@@ -115,17 +115,17 @@
   background-color: #f1f0f0;
 }
 
-.comment[data-color="red"]{
+*[data-color="red"]{
   border: 5px solid #EB9886;
   background-color:#f3dbd5;
 }
 
-.comment[data-color="blue"]{
+*[data-color="blue"]{
   border: 5px solid #6E91EB;
   background-color:#c9d3ee;
 }
 
-.comment[data-color="pur"]{
+*[data-color="pur"]{
   border: 5px solid #b8adcf;
   background-color:#d9d0e9;
 }

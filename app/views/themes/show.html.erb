@@ -14,22 +14,22 @@
     <ul class="post-menu">
       <label class="sub-blue sub-label">
         <li class="sub-li">
-          <%= f.radio_button :sub_theme_num, 1 %><%=@theme.sub_theme_1%>
+          <%= f.radio_button :sub_theme_num,1,name:"sub-theme-btn" %><%=@theme.sub_theme_1%>
         </li>
       </label>
       <label class="sub-red sub-label">
         <li class="sub-li">
-          <%= f.radio_button :sub_theme_num, 2 %><%=@theme.sub_theme_2%>
+          <%= f.radio_button :sub_theme_num,2,name:"sub-theme-btn"  %><%=@theme.sub_theme_2%>
         </li>
       </label>
       <label class="sub-pur sub-label">
         <li class="sub-li">
-          <%= f.radio_button :sub_theme_num, 3 %>中立
+          <%= f.radio_button :sub_theme_num,3,name:"sub-theme-btn" %>中立
         </li>
       </label>
     </ul>
     <div class="comment-post">
-      <%= f.text_area :text, class:"post-text"%>
+      <%= f.text_area :text, class:"post-text-area",id:"post-text"%>
       <div class="post-menu">
         <%= f.submit "投稿する", class:"post-submit"%>
       </div>
