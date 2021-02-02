@@ -1,9 +1,11 @@
 function sort (){
-  let comments = document.querySelectorAll(".comment")
   const comBox = document.getElementById("com-box")
   const btnNew = document.getElementById("new")
   const btnOld = document.getElementById("old")
   const btnDcNew = document.getElementById("dc-new")
+  const btnDcOld = document.getElementById("dc-old")
+
+  let comments = document.querySelectorAll(".comment")
   let arrCom = []
   let i = 0
   comments.forEach(function(comment){
@@ -13,7 +15,6 @@ function sort (){
     arrCom[i].value = comment
     i += 1
   })
-
 
   btnNew.addEventListener('click', function(){
     arrCom.sort(orderAsc)
@@ -30,10 +31,18 @@ function sort (){
   })
 
   btnDcNew.addEventListener('click',function(){
+    arrCom.sort(orderDesc)
     discontinuousSort(arrCom).forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   }) 
+
+  btnDcOld.addEventListener('click',function(){
+    arrCom.sort(orderAsc)
+    discontinuousSort(arrCom).forEach(function(com){
+      comBox.insertAdjacentElement('afterbegin',com.value)
+    })
+  })
 
   function orderAsc(a,b){
     if (a.id < b.id){
