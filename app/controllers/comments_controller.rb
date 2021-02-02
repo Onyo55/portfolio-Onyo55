@@ -6,16 +6,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to theme_path(params[:theme_id])
-    else
-      @theme = @comment.theme
-      @comments = @theme.comments
-      render "themes/show"
-    end
+    comment = Comment.create(comment_params)
+    render json:{comment: comment}
   end
-
 
   private
 
