@@ -115,17 +115,17 @@
   background-color: #f1f0f0;
 }
 
-.red{
+.comment[data-color="red"]{
   border: 5px solid #EB9886;
   background-color:#f3dbd5;
 }
 
-.blue{
+.comment[data-color="blue"]{
   border: 5px solid #6E91EB;
   background-color:#c9d3ee;
 }
 
-.pur{
+.comment[data-color="pur"]{
   border: 5px solid #b8adcf;
   background-color:#d9d0e9;
 }
