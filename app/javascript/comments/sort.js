@@ -11,7 +11,7 @@ function sort (){
   comments.forEach(function(comment){
     arrCom[i] = {}
     arrCom[i].id = comment.getAttribute("data-id")
-    arrCom[i].color = comment.getAttribute("data-color")
+    arrCom[i].subTheme = comment.getAttribute("data-sub-theme")
     arrCom[i].value = comment
     i += 1
   })
@@ -64,11 +64,11 @@ function sort (){
       let z = 1
       let sliceArr = arr.slice(y)
       console.log(sliceArr)
-      let result = sliceArr.every(c => c.color == sliceArr[0].color)
+      let result = sliceArr.every(c => c.subTheme == sliceArr[0].subTheme)
       if (result){
         return arr
       }
-      while(arr[x].color == arr[y].color){
+      while(arr[x].subTheme == arr[y].subTheme){
         let t = arr[y]
         arr[y] = arr[y+z]
         arr[y+z] = t
