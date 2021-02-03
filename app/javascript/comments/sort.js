@@ -18,6 +18,7 @@ function sort (){
 
   btnNew.addEventListener('click', function(){
     arrCom.sort(orderAsc)
+    console.log(arrCom)
     arrCom.forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
@@ -25,6 +26,7 @@ function sort (){
 
   btnOld.addEventListener('click', function(){
     arrCom.sort(orderDesc)
+    console.log(arrCom)
     arrCom.forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
@@ -45,23 +47,15 @@ function sort (){
   })
 
   function orderAsc(a,b){
-    if (a.id < b.id){
-      return 1
-    } else if(a.id > b.id) {
-      return -1
-    }else{
-      return 0
-    }
+    if(Number(a.id) < Number(b.id)) return -1;
+    if(Number(a.id) > Number(b.id)) return 1;
+    return 0;
   }
   
   function orderDesc(a,b){
-    if (a.id > b.id){
-      return 1
-    } else if(a.id < b.id) {
-      return -1
-    }else{
-      return 0
-    }
+    if(Number(a.id) < Number(b.id)) return 1;
+    if(Number(a.id) > Number(b.id)) return -1;
+    return 0;
   }
 
   function discontinuousSort(arr){
@@ -69,6 +63,7 @@ function sort (){
       let y = x + 1
       let z = 1
       let sliceArr = arr.slice(y)
+      console.log(sliceArr)
       let result = sliceArr.every(c => c.color == sliceArr[0].color)
       if (result){
         return arr
@@ -80,6 +75,7 @@ function sort (){
         z += 1
       }
     }
+    return arr
   }
 
 }
