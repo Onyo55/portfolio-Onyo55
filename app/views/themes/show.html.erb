@@ -30,7 +30,7 @@
     </ul>
     <div class="comment-post">
       <%= f.text_area :text, class:"post-text-area",id:"post-text"%>
-      <div class="post-menu" id="theme-id" data-themeid=<%=@theme.id%>>
+      <div class="post-menu" id="theme-id" data-theme-id=<%=@theme.id%>>
         <%= f.submit "投稿する", class:"comment-submit", id:"com-submit"%>
       </div>
     </div> 

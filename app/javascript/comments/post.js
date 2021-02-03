@@ -19,7 +19,7 @@ function post(){
   })
 
   const commentSubmit = document.getElementById("com-submit")
-  const themeId = document.getElementById("theme-id").getAttribute("data-themeid")
+  const themeId = document.getElementById("theme-id").getAttribute("data-theme-id")
   commentSubmit.addEventListener('click',function(e){
     e.preventDefault()
     const formData = new FormData(document.getElementById("comment-form"))
@@ -32,17 +32,16 @@ function post(){
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
-      const item = XHR.response.comment
-      console.log(item)
+      const item = XHR.response
       const comBox = document.getElementById("com-box") 
       const postText = document.getElementById("post-text")
       const HTML = `
-        <div class="comment" data-id=${item.id} data-sub-theme=${item.sub_theme_num}>
+        <div class="comment" data-id=${item.comment.id} data-sub-theme=${item.comment.sub_theme_num}>
           <div class="comment-info">
-            <h3 class="user-name">${item.user_id}</h3>
-            <p class="created-at">${item.created_at}</p>
+            <h3 class="user-name">${item.user_name}</h3>
+            <p class="created-at">${item.comment.created_at}</p>
           </div>
-          ${item.text}
+          ${item.comment.text}
         </div>`
       comBox.insertAdjacentHTML("afterbegin", HTML);
       postText.value = ""

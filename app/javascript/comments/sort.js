@@ -4,47 +4,52 @@ function sort (){
   const btnOld = document.getElementById("old")
   const btnDcNew = document.getElementById("dc-new")
   const btnDcOld = document.getElementById("dc-old")
-
-  let comments = document.querySelectorAll(".comment")
-  let arrCom = []
-  let i = 0
-  comments.forEach(function(comment){
-    arrCom[i] = {}
-    arrCom[i].id = comment.getAttribute("data-id")
-    arrCom[i].subTheme = comment.getAttribute("data-sub-theme")
-    arrCom[i].value = comment
-    i += 1
-  })
-
+ 
   btnNew.addEventListener('click', function(){
-    arrCom.sort(orderAsc)
-    console.log(arrCom)
-    arrCom.forEach(function(com){
+    let changeComments = newCom()
+    changeComments.sort(orderAsc)
+    changeComments.forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   })
 
   btnOld.addEventListener('click', function(){
-    arrCom.sort(orderDesc)
-    console.log(arrCom)
-    arrCom.forEach(function(com){
+    let changeComments = newCom()
+    changeComments.sort(orderDesc)
+    changeComments.forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   })
 
   btnDcNew.addEventListener('click',function(){
-    arrCom.sort(orderDesc)
-    discontinuousSort(arrCom).reverse().forEach(function(com){
+    let changeComments = newCom()
+    changeComments.sort(orderDesc)
+    discontinuousSort(changeComments).reverse().forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   }) 
 
   btnDcOld.addEventListener('click',function(){
-    arrCom.sort(orderAsc)
-    discontinuousSort(arrCom).reverse().forEach(function(com){
+    let changeComments = newCom()
+    changeComments.sort(orderAsc)
+    discontinuousSort(changeComments).reverse().forEach(function(com){
       comBox.insertAdjacentElement('afterbegin',com.value)
     })
   })
+
+  function newCom(){
+    let comments = document.querySelectorAll(".comment")
+    let arrCom = []
+    let i = 0
+    comments.forEach(function(comment){
+      arrCom[i] = {}
+      arrCom[i].id = comment.getAttribute("data-id")
+      arrCom[i].subTheme = comment.getAttribute("data-sub-theme")
+      arrCom[i].value = comment
+      i += 1
+    })
+    return arrCom
+  }
 
   function orderAsc(a,b){
     if(Number(a.id) < Number(b.id)) return -1;
@@ -63,7 +68,6 @@ function sort (){
       let y = x + 1
       let z = 1
       let sliceArr = arr.slice(y)
-      console.log(sliceArr)
       let result = sliceArr.every(c => c.subTheme == sliceArr[0].subTheme)
       if (result){
         return arr
