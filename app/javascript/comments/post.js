@@ -6,13 +6,13 @@ function post(){
     e.addEventListener('click',function(){
       switch(e.value){
         case "1":
-          postTextArea.setAttribute("data-color", "blue")
+          postTextArea.setAttribute("data-sub-theme", "1")
           break;
         case "2":
-          postTextArea.setAttribute("data-color", "red")
+          postTextArea.setAttribute("data-sub-theme", "2")
           break;
         case "3":
-          postTextArea.setAttribute("data-color", "pur")
+          postTextArea.setAttribute("data-sub-theme", "3")
           break;
       }
     })
@@ -21,7 +21,7 @@ function post(){
   const commentSubmit = document.getElementById("com-submit")
   const themeId = document.getElementById("theme-id").getAttribute("data-themeid")
   commentSubmit.addEventListener('click',function(e){
-    e.preventDefault
+    e.preventDefault()
     const formData = new FormData(document.getElementById("comment-form"))
     const XHR = new XMLHttpRequest()
     XHR.open("POST", `/themes/${themeId}/comments`, true)
@@ -33,16 +33,21 @@ function post(){
         return null;
       }
       const item = XHR.response.comment
+      console.log(item)
       const comBox = document.getElementById("com-box") 
       const postText = document.getElementById("post-text")
-      const HTML = `<div class="comment", data-id=<%=comment.id%>, data-color=<%=sub_theme_color(comment)%>>
-      <div class="comment-info">
-        <h3 class="user-name"><%=comment.user.name%></h3>
-        <p class="created-at"><%=l comment.created_at%></p>
-      </div>
-      <%=comment.text%>
-    </div>`
+      const HTML = `
+        <div class="comment" data-id=${item.id} data-sub-theme=${item.sub_theme_num}>
+          <div class="comment-info">
+            <h3 class="user-name">${item.user_id}</h3>
+            <p class="created-at">${item.created_at}</p>
+          </div>
+          ${item.text}
+        </div>`
+      comBox.insertAdjacentHTML("afterbegin", HTML);
+      postText.value = ""
     }
+    
   })
 
 }

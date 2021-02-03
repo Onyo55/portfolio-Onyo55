@@ -10,7 +10,7 @@
     </ul>
   </div>
 
-  <%= form_with model: [@theme, @comment],class:"post-form", local: true do |f| %>
+  <%= form_with model: [@theme, @comment],class:"post-form",id:"comment-form"  do |f| %>
     <ul class="post-menu">
       <label class="sub-blue sub-label">
         <li class="sub-li">
@@ -30,8 +30,8 @@
     </ul>
     <div class="comment-post">
       <%= f.text_area :text, class:"post-text-area",id:"post-text"%>
-      <div class="post-menu">
-        <%= f.submit "投稿する", class:"post-submit"%>
+      <div class="post-menu" id="theme-id" data-themeid=<%=@theme.id%>>
+        <%= f.submit "投稿する", class:"comment-submit", id:"com-submit"%>
       </div>
     </div> 
   <% end %>
@@ -52,8 +52,8 @@
 
     <div class="comment-box" id="com-box">
 
-      <% @comments.each_with_index do |comment, i|%>
-        <div class="comment", data-id="<%=i%>", data-color=<%=sub_theme_color(comment)%>>
+      <% @comments.each do |comment|%>
+        <div class="comment"  data-id=<%=comment.id%> data-sub-theme=<%=comment.sub_theme_num%>>
           <div class="comment-info">
             <h3 class="user-name"><%=comment.user.name%></h3>
             <p class="created-at"><%=l comment.created_at%></p>

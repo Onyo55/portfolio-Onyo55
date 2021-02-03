@@ -16,8 +16,9 @@ class CommentsController < ApplicationController
     params.require(
       :comment
     ).permit(
-      :text,:sub_theme_num
-    ).merge(user_id: current_user.id, theme_id: params[:theme_id])
+      :text
+    ).merge(
+      user_id: current_user.id, theme_id: params[:theme_id],sub_theme_num: params["sub-theme-btn"])
   end
 
 end

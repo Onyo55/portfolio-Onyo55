@@ -115,17 +115,19 @@
   background-color: #f1f0f0;
 }
 
-*[data-color="red"]{
-  border: 5px solid #EB9886;
-  background-color:#f3dbd5;
-}
 
-*[data-color="blue"]{
+
+*[data-sub-theme="1"]{
   border: 5px solid #6E91EB;
   background-color:#c9d3ee;
 }
 
-*[data-color="pur"]{
+*[data-sub-theme="2"]{
+  border: 5px solid #EB9886;
+  background-color:#f3dbd5;
+}
+
+*[data-sub-theme="3"]{
   border: 5px solid #b8adcf;
   background-color:#d9d0e9;
 }
