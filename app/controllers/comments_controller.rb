@@ -6,16 +6,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to theme_path(params[:theme_id])
-    else
-      @theme = @comment.theme
-      @comments = @theme.comments
-      render "themes/show"
-    end
+    comment = Comment.create(comment_params)
+    render json:{comment: comment,
+                  user_name: comment.user.name,
+                }
   end
-
 
   private
 
@@ -23,8 +18,9 @@ class CommentsController < ApplicationController
     params.require(
       :comment
     ).permit(
-      :text,:sub_theme_num
-    ).merge(user_id: current_user.id, theme_id: params[:theme_id])
+      :text
+    ).merge(
+      user_id: current_user.id, theme_id: params[:theme_id],sub_theme_num: params["sub-theme-btn"])
   end
 
 end
