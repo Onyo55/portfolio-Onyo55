@@ -1,67 +1,80 @@
-<%= render "shared/header" %>
-<div class="theme-show">
-
-  <div class="theme-box">
-    <h1 class="main-theme-show">テーマ</h1>
-    <ul class="sub-theme-show">
-      <li class="sub-blue"><%=@theme.sub_theme_1%></li>
-      <li class="sub-or">or</li>
-      <li class="sub-red"><%=@theme.sub_theme_2%></li>
-    </ul>
+<div class="theme-header" id="top">
+  <div class="header-content">  
+    <%= link_to "トップ", root_path, class:"top-link" %>
+    <%= link_to "ページトップ",{ anchor: "top" },class:"move-top"%>
   </div>
+</div>
 
-  <%= form_with model: [@theme, @comment],class:"post-form",id:"comment-form"  do |f| %>
-    <ul class="post-menu">
-      <label class="sub-blue sub-label">
-        <li class="sub-li">
-          <%= f.radio_button :sub_theme_num,1,name:"sub-theme-btn" %><%=@theme.sub_theme_1%>
-        </li>
-      </label>
-      <label class="sub-red sub-label">
-        <li class="sub-li">
-          <%= f.radio_button :sub_theme_num,2,name:"sub-theme-btn"  %><%=@theme.sub_theme_2%>
-        </li>
-      </label>
-      <label class="sub-pur sub-label">
-        <li class="sub-li">
-          <%= f.radio_button :sub_theme_num,3,name:"sub-theme-btn" %>中立
-        </li>
-      </label>
-    </ul>
-    <div class="comment-post">
-      <%= f.text_area :text, class:"post-text-area",id:"post-text"%>
-      <div class="post-menu" id="theme-id" data-theme-id=<%=@theme.id%>>
-        <%= f.submit "投稿する", class:"comment-submit", id:"com-submit"%>
-      </div>
-    </div> 
-  <% end %>
+<div class="theme-show">
+  
 
   <div class="content-wrap">
-    <div class="menu-box">
-      <h2 class="sort-text">並べ替え</h2>
-      <div class="sort-menu">
-        <ul>
-          <li><button type = "button" id="new">投稿の新しい順</button></li>
-          <li><button type = "button" id="old">投稿の古い順</button></li>
-        </ul>
-        <ul>
-          <li><button type = "button" id="dc-new">色の連続なし投稿の新しい順</button></li>
-          <li><button type = "button" id="dc-old">色の連続なし投稿の古い順</button></li>
-      </div>
-    </div> 
-
-    <div class="comment-box" id="com-box">
-
-      <% @comments.each do |comment|%>
-        <div class="comment"  data-id=<%=comment.id%> data-sub-theme=<%=comment.sub_theme_num%>>
-          <div class="comment-info">
-            <h3 class="user-name"><%=comment.user.name%></h3>
-            <p class="created-at"><%=l comment.created_at%></p>
-          </div>
-          <%=comment.text%>
+    <div class="menu-wrap">
+      <div class="menu-box">
+        <h2 class="sort-text">並べ替え</h2>
+        <div class="sort-menu">
+          <ul>
+            <li><button type = "button" id="new">投稿の新しい順</button></li>
+            <li><button type = "button" id="old">投稿の古い順</button></li>
+          </ul>
+          <ul>
+            <li><button type = "button" id="dc-new">色の連続なし投稿の新しい順</button></li>
+            <li><button type = "button" id="dc-old">色の連続なし投稿の古い順</button></li>
         </div>
+      </div> 
+    </div>
+
+    <div class="comment-area">
+
+      <%= form_with model: [@theme, @comment],class:"post-form",id:"comment-form"  do |f| %>
+        <ul class="post-menu">
+          <label class="sub-blue sub-label">
+            <li class="sub-li">
+              <%= f.radio_button :sub_theme_num,1,name:"sub-theme-btn" %><%=@theme.sub_theme_1%>
+            </li>
+          </label>
+          <label class="sub-red sub-label">
+            <li class="sub-li">
+              <%= f.radio_button :sub_theme_num,2,name:"sub-theme-btn"  %><%=@theme.sub_theme_2%>
+            </li>
+          </label>
+          <label class="sub-pur sub-label">
+            <li class="sub-li">
+              <%= f.radio_button :sub_theme_num,3,name:"sub-theme-btn" %>どっちでも
+            </li>
+          </label>
+        </ul>
+        <div class="comment-post">
+          <%= f.text_area :text, class:"post-text-area",id:"post-text"%>
+          <div class="post-menu" id="theme-id" data-theme-id=<%=@theme.id%>>
+            <%= f.submit "投稿する", class:"comment-submit", id:"com-submit"%>
+          </div>
+        </div> 
       <% end %>
 
+      <div class="comment-box" id="com-box">
+        <% @comments.each do |comment|%>
+          <div class="comment"  data-id=<%=comment.id%> data-sub-theme=<%=comment.sub_theme_num%>>
+            <div class="comment-info">
+              <h3 class="user-name"><%=comment.user.name%></h3>
+              <p class="created-at"><%=l comment.created_at%></p>
+            </div>
+            <%=comment.text%>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+    <div class="theme-wrap">
+      <div class="theme-box">
+        <h1 class="main-theme-show">テーマ</h1>
+        <ul class="sub-theme-show">
+          <li class="sub-blue"><%=@theme.sub_theme_1%></li>
+          <li class="sub-or">or</li>
+          <li class="sub-red"><%=@theme.sub_theme_2%></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>
