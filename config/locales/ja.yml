@@ -7,6 +7,9 @@ ja:
       main_theme: メインテーマ
       sub_theme_1: サブテーマ1
       sub_theme_2: サブテーマ2
+     comment:
+      text: テキスト
+      sub_theme_num: サブテーマ
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
