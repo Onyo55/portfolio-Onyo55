@@ -85,3 +85,4 @@ function sort (){
 }
 
 window.addEventListener('load', sort)
+window.addEventListener("turbolinks:load", sort)

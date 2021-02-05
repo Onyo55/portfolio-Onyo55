@@ -1,6 +1,8 @@
 function post(){
   const subThemeBtn = document.getElementsByName("sub-theme-btn")
   const postTextArea = document.getElementById("post-text")
+  const commentSubmit = document.getElementById("com-submit")
+  const themeId = document.getElementById("theme-id").getAttribute("data-theme-id")
 
   subThemeBtn.forEach(function(e){
     e.addEventListener('click',function(){
@@ -15,11 +17,19 @@ function post(){
           postTextArea.setAttribute("data-sub-theme", "3")
           break;
       }
+      postTextArea.disabled = false
+      postTextArea.placeholder = "テキストは必須です"
     })
   })
 
-  const commentSubmit = document.getElementById("com-submit")
-  const themeId = document.getElementById("theme-id").getAttribute("data-theme-id")
+  postTextArea.addEventListener('keyup', function(){
+    if(postTextArea.value != ""){
+      commentSubmit.disabled = false
+    }else{
+      commentSubmit.disabled = true
+    }
+  })
+
   commentSubmit.addEventListener('click',function(e){
     e.preventDefault()
     const formData = new FormData(document.getElementById("comment-form"))
@@ -52,3 +62,4 @@ function post(){
 }
 
 window.addEventListener('load', post)
+window.addEventListener("turbolinks:load", post)

@@ -1,12 +1,6 @@
-<div class="theme-header" id="top">
-  <div class="header-content">  
-    <%= link_to "トップ", root_path, class:"top-link" %>
-    <%= link_to "ページトップ",{ anchor: "top" },class:"move-top"%>
-  </div>
-</div>
+<%= render "shared/header" %>
 
 <div class="theme-show">
-  
 
   <div class="content-wrap">
     <div class="menu-wrap">
@@ -25,32 +19,41 @@
     </div>
 
     <div class="comment-area">
-
-      <%= form_with model: [@theme, @comment],class:"post-form",id:"comment-form"  do |f| %>
-        <ul class="post-menu">
-          <label class="sub-blue sub-label">
-            <li class="sub-li">
-              <%= f.radio_button :sub_theme_num,1,name:"sub-theme-btn" %><%=@theme.sub_theme_1%>
-            </li>
-          </label>
-          <label class="sub-red sub-label">
-            <li class="sub-li">
-              <%= f.radio_button :sub_theme_num,2,name:"sub-theme-btn"  %><%=@theme.sub_theme_2%>
-            </li>
-          </label>
-          <label class="sub-pur sub-label">
-            <li class="sub-li">
-              <%= f.radio_button :sub_theme_num,3,name:"sub-theme-btn" %>どっちでも
-            </li>
-          </label>
-        </ul>
-        <div class="comment-post">
-          <%= f.text_area :text, class:"post-text-area",id:"post-text"%>
-          <div class="post-menu" id="theme-id" data-theme-id=<%=@theme.id%>>
-            <%= f.submit "投稿する", class:"comment-submit", id:"com-submit"%>
+      <div class="form-wrap">
+        <% if user_signed_in?%>
+          <%= form_with model: [@theme, @comment],class:"post-form",id:"comment-form"  do |f| %>
+            <ul class="post-menu">
+              <label class="sub-blue sub-label">
+                <li class="sub-li">
+                  <%= f.radio_button :sub_theme_num,1,name:"sub-theme-btn" %><%=@theme.sub_theme_1%>
+                </li>
+              </label>
+              <label class="sub-red sub-label">
+                <li class="sub-li">
+                  <%= f.radio_button :sub_theme_num,2,name:"sub-theme-btn"  %><%=@theme.sub_theme_2%>
+                </li>
+              </label>
+              <label class="sub-pur sub-label">
+                <li class="sub-li">
+                  <%= f.radio_button :sub_theme_num,3,name:"sub-theme-btn" %>どっちでも
+                </li>
+              </label>
+            </ul>
+            <div class="comment-post">
+              <%= f.text_area :text,placeholder:"サブテーマを選択してください", class:"post-text-area",id:"post-text",disabled: true%>
+              <div class="post-menu" id="theme-id" data-theme-id=<%=@theme.id%>>
+                <%= f.submit "投稿する", class:"comment-submit", id:"com-submit",disabled: true%>
+              </div>
+            </div> 
+          <% end %>
+        <% else %>
+          <div class="login-message">
+            <p class="message-text">
+              コメントの投稿には<%=link_to"ログイン",new_user_session_path,class: "login-message"%>が必要です
+            </p>
           </div>
-        </div> 
-      <% end %>
+        <%end%>
+      </div>
 
       <div class="comment-box" id="com-box">
         <% @comments.each do |comment|%>
