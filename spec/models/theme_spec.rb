@@ -49,6 +49,12 @@ RSpec.describe Theme, type: :model do
         @theme.valid?
         expect(@theme.errors.full_messages).to include("サブテーマ2は20文字以内で入力してください")
       end
+      # アソシエーションのテスト
+      it 'userが紐付いていないときは登録できない' do
+        @theme.user = nil
+        @theme.valid?
+        expect(@theme.errors.full_messages).to include("Userを入力してください")
+      end
     end
 
   end
