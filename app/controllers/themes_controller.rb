@@ -24,6 +24,11 @@ class ThemesController < ApplicationController
     @comments = @theme.comments.includes(:user).order('created_at DESC')
   end
 
+  def search
+    @themes = Theme.search(params[:keyword])
+    render :index
+  end
+
   private
 
   def theme_params
