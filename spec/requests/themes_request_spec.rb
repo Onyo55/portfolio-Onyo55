@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Themes", type: :request do
-
+RSpec.describe 'Themes', type: :request do
 end

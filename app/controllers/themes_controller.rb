@@ -30,7 +30,7 @@ class ThemesController < ApplicationController
     params.require(
       :theme
     ).permit(
-      :main_theme,:sub_theme_1, :sub_theme_2,
+      :main_theme, :sub_theme_1, :sub_theme_2
     ).merge(user_id: current_user.id)
   end
 end
