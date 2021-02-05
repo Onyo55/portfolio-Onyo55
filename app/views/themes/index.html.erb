@@ -12,10 +12,10 @@
   <div class="theme-index">
     <div class="search-form">
       <p class="search-title">テーマを検索する</p>
-        <div class="search-input">
-          <input type="text" class="search-text">
-          <input type="submit" class="search-submit">
-        </div>
+      <%= form_with url:root_path,local: true,class: "search-input", method: :get do |f|%>
+        <%= f.text_area :keyword, class:"search-text" %>
+        <%= f.submit "検索", class:"search-submit" %>
+      <% end %>
     </div>
 
     <% @themes.each do |theme|%>

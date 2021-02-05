@@ -54,7 +54,24 @@ a{
   align-items: center;
 }
 
+.search-input{
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
 
+.search-text{
+  height: 30px;
+  margin: 0 10px;
+  font-size: 15px;
+  resize: none;
+  display: block;
+}
+
+.search-submit{
+  display: block;
+}
 
 .theme-wrapper{
   width: 100%;
