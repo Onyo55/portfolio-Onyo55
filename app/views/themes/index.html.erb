@@ -1,34 +1,38 @@
-<%= render "shared/header" %>
-<div class="mail-wrapper">
+<%= render "shared/header" %> 
 
-  <div class="title-content">
-    <h2 class="title">Level</h1>
-    <p>異なる考えの存在を可視化したい</p>
+<div class="main-wrapper">
+
+  <div class="title-wrap">
+    <div class="title-content">
+      <h2 class="title">title</h1>
+      <p>異なる考えの存在を可視化したい</p>
+    </div>
   </div>
 
-  <div class="search-form">
-    <p class="search-title">テーマを検索する</p>
-      <div class="search-input">
-        <input type="text" class="search-text">
-        <input type="submit" class="search-submit">
-      </div>
-  </div>
-
-  <% @themes.each do |theme|%>
-    <%= link_to theme_path(theme.id) do %>
-      <div class="theme-wrapper">
-        <div class="theme-content">
-          <h3 class="main-theme"><%=theme.main_theme%></h3>
-          <ul class="sub-theme-list">
-            <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
-            <li class="theme-or"> or </li> 
-            <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
-          </ul>
+  <div class="theme-index">
+    <div class="search-form">
+      <p class="search-title">テーマを検索する</p>
+        <div class="search-input">
+          <input type="text" class="search-text">
+          <input type="submit" class="search-submit">
         </div>
-      </div>
-    <% end %>
-  <% end %>
-    
-</div>
+    </div>
 
-<%= render "shared/footer" %>
+    <% @themes.each do |theme|%>
+      <%= link_to theme_path(theme.id) do %>
+        <div class="theme-wrapper">
+          <div class="theme-content">
+            <h3 class="main-theme"><%=theme.main_theme%></h3>
+            <ul class="sub-theme-list">
+              <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
+              <li class="theme-or"> or </li> 
+              <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>
