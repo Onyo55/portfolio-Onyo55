@@ -3,6 +3,10 @@ ja:
     attributes:
      user:
        name: 名前
+     theme:
+      main_theme: メインテーマ
+      sub_theme_1: サブテーマ1
+      sub_theme_2: サブテーマ2
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
