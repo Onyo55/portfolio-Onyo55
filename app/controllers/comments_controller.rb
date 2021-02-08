@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create(comment_params)
+    l_created_at = l comment.created_at 
     render json: { comment: comment,
-                   user_name: comment.user.name }
+                   user_name: comment.user.name,
+                   l_created_at: l_created_at }
   end
 
   private
