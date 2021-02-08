@@ -49,7 +49,7 @@ function post(){
         <div class="comment" data-id=${item.comment.id} data-sub-theme=${item.comment.sub_theme_num}>
           <div class="comment-info">
             <h3 class="user-name">${item.user_name}</h3>
-            <p class="created-at">${item.comment.created_at}</p>
+            <p class="created-at">${item.l_created_at}</p>
           </div>
           ${item.comment.text}
         </div>`

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "themes#index"
   resources :themes, only: [:index, :new, :create, :show] do
     resources :comments, only: [:index, :create] 
+    collection do
+      get 'search'
+    end
   end
 
 end
