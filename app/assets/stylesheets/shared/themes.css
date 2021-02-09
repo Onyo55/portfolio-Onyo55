@@ -1,0 +1,38 @@
+.theme-wrapper{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.theme-content{
+  background-color:#DCE3DE;
+  height: 100px;
+  padding:10px 10px 5px;
+}
+
+
+.main-theme{
+  font-size: 30px;
+  height: 50%;
+}
+
+.sub-theme-blue{
+  background-color: #6E91EB;
+  text-align: center;
+  height: 100%;
+}
+
+.theme-or{
+  margin: 0 10px;
+  height: 100%;
+}
+
+.sub-theme-red{
+  background-color:#EB9886;
+  height: 100%;
+}
+
+.sub-theme-list{
+  height: 40%;
+  display: flex;
+ 
+}
