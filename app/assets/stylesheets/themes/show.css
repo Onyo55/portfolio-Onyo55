@@ -1,11 +1,12 @@
 .theme-show{
   background-color: #252a34;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .theme-wrap{
   width: 25%;
+  padding-top: 15px;
 }
 
 .theme-box{
@@ -66,6 +67,7 @@
 
 .menu-wrap{
   width: 25%;
+  padding-top: 15px;
 }
 
 .post-text-area{
@@ -75,6 +77,9 @@
   font-size: 19px;
   background-color: #f1f0f0;
   margin-bottom: 5px;
+  border-left: 15px solid gray;
+  border-right: 15px solid gray;
+  border-bottom:2px solid  gray;
 }
 
 .content-wrap{
