@@ -1,12 +1,20 @@
-<%= link_to theme_path(themes.id) do %>
-  <div class="theme-wrapper">
+<div class="theme-wrapper">
+  <%= link_to theme_path(themes.id),class:"themes" do %>
     <div class="theme-content">
-      <h3 class="main-theme"><%=themes.main_theme%></h3>
-      <ul class="sub-theme-list">
-        <li class="sub-theme-blue"><%=themes.sub_theme_1%></li>
-        <li class="theme-or"> or </li> 
-        <li class="sub-theme-red"><%=themes.sub_theme_2%></li>
-      </ul>
+      <div class="theme-left">
+        <h3 class="main-theme"><%=themes.main_theme%></h3>
+        <ul class="sub-theme-list">
+          <li class="sub-theme-blue"><%=themes.sub_theme_1%></li>
+          <li class="theme-or"> or </li> 
+          <li class="sub-theme-red"><%=themes.sub_theme_2%></li>
+        </ul>
+      </div>
     </div>
+  <% end %>
+  <div class="theme-menu">
+    <% if user_signed_in? && current_user.id == themes.user.id%>
+      <%= link_to "削除",theme_path(themes.id),method: :delete%>
+    <% end %>
   </div>
-<% end %>
+</div>
+

@@ -1,14 +1,31 @@
 .theme-wrapper{
   width: 100%;
+  display: flex;
   margin-bottom: 10px;
+}
+
+.themes{
+  width: 95%;
 }
 
 .theme-content{
   background-color:#DCE3DE;
+  width: 100%;
   height: 100px;
   padding:10px 10px 5px;
+  display: flex;
+  
 }
 
+.theme-left{
+  height: 100%;
+  width: 90%;
+}
+
+.theme-right{
+  width: 10%;
+  background-color: gray;
+}
 
 .main-theme{
   font-size: 30px;
@@ -34,5 +51,10 @@
 .sub-theme-list{
   height: 40%;
   display: flex;
- 
+}
+
+.theme-menu{
+  width: calc(100% - 95%);
+  background-color:#DCE3DE;
+  padding-top: 10px;
 }

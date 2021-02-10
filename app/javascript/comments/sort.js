@@ -5,7 +5,7 @@ function sort (){
     const btnOld = document.getElementById("old")
     const btnDcNew = document.getElementById("dc-new")
     const btnDcOld = document.getElementById("dc-old")
-  
+
     btnNew.addEventListener('click', function(){
       let changeComments = newCom()
       changeComments.sort(orderAsc)

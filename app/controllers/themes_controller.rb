@@ -24,6 +24,19 @@ class ThemesController < ApplicationController
     @comments = @theme.comments.includes(:user).order('created_at DESC')
   end
 
+  def destroy
+    theme = Theme.find(params[:id])
+    if current_user.id == theme.user.id
+      if theme.destroy
+        redirect_to root_path
+      else
+        render :index
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   def search
     @themes = Theme.search(params[:keyword])
     render :index
