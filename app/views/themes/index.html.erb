@@ -1,37 +1,27 @@
 <%= render "shared/header" %> 
 
 <div class="main-wrapper">
-
-  <div class="title-wrap">
-    <div class="title-content">
-      <h2 class="title">title</h1>
-      <p>異なる考えの存在を可視化したい</p>
+  <div class="title-main">
+    <div class="title-wrap">
+      <div class="title-content">
+        <h2 class="title">title</h1>
+        <p>description</p>
+      </div>
     </div>
   </div>
 
   <div class="theme-index">
     <div class="search-form">
-      <p class="search-title">テーマを検索する</p>
+      <p>テーマを検索する</p>
       <%= form_with url:search_themes_path,local: true,class: "search-input", method: :get do |f|%>
         <%= f.text_area :keyword, class:"search-text" %>
         <%= f.submit "検索", class:"search-submit" %>
       <% end %>
     </div>
 
-    <% @themes.each do |theme|%>
-      <%= link_to theme_path(theme.id) do %>
-        <div class="theme-wrapper">
-          <div class="theme-content">
-            <h3 class="main-theme"><%=theme.main_theme%></h3>
-            <ul class="sub-theme-list">
-              <li class="sub-theme-blue"><%=theme.sub_theme_1%></li>
-              <li class="theme-or"> or </li> 
-              <li class="sub-theme-red"><%=theme.sub_theme_2%></li>
-            </ul>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <div class="users-theme">
+      <%= render partial: "shared/themes", collection: @themes%>
+    </div>
 
   </div>
 

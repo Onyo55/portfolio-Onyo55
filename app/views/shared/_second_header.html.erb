@@ -1,14 +1,8 @@
-<header class="top-page-header">
-
-  <div class="theme-header" id="top">
-  <div class="header-content">  
-    <%= link_to "title", root_path, class:"top-link" %>
-    <a href="#top" class="move-top">トップへ移動</a>
-
-    <div class="nav">
+<div class="second-header" >
+  <%= link_to "title", root_path, class:"top-link" %>
+  <div class="nav">
       <ul class='lists-right'>
         <% if user_signed_in? %>
-          <li><%= link_to "テーマ作成", new_theme_path, class: "theme-new" %></li>
           <li><%= link_to current_user.name, users_show_path, class: "user-name btn" %> </li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout btn"%> </li> 
         <% else %>
@@ -17,7 +11,4 @@
         <%end%>
       </ul>
     </div>
-  </div>
 </div>
-
-</header>

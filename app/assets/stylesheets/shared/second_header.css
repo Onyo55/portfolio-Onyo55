@@ -1,0 +1,10 @@
+.second-header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #4a5261;
+  padding: 0 15px;
+}
+
