@@ -2,7 +2,7 @@ class ThemesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @themes = Theme.all
+    @themes = Theme.all.includes(:comments)
   end
 
   def new

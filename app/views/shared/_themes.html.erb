@@ -2,12 +2,16 @@
   <%= link_to theme_path(themes.id),class:"themes" do %>
     <div class="theme-content">
       <div class="theme-left">
-        <h3 class="main-theme"><%=themes.main_theme%></h3>
+        <h1 class="main-theme"><%=themes.main_theme%></h1>
         <ul class="sub-theme-list">
           <li class="sub-theme-blue"><%=themes.sub_theme_1%></li>
           <li class="theme-or"> or </li> 
           <li class="sub-theme-red"><%=themes.sub_theme_2%></li>
         </ul>
+      </div>
+      <div class="theme-right">
+        <p class="comments-num"><%=themes.comments.count%></p>
+        <h2>コメント</h2>
       </div>
     </div>
   <% end %>
