@@ -13,8 +13,15 @@
   <% end %>
   <div class="theme-menu">
     <% if user_signed_in? && current_user.id == themes.user.id%>
-      <%= link_to "削除",theme_path(themes.id),method: :delete%>
+       <input type="checkbox" id="menu-check-<%=themes.id%>" class="menu-hidden" >
+       <label for="menu-check-<%=themes.id%>" class="menu-open"><span></span></label>
+       <nav class="menu">
+         <ul class="menu-list">
+           <li><%= link_to "削除",theme_path(themes.id),method: :delete%></li>
+         </ul>
+       </nav>
+       <div class="cover">
+       </div>
     <% end %>
   </div>
 </div>
-
