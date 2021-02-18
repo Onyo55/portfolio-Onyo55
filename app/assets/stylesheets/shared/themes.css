@@ -16,7 +16,6 @@
   height: 100%;
   padding:10px 0 5px 10px;
   display: flex;
-  
 }
 
 .theme-left{
@@ -32,7 +31,12 @@
   flex-direction: column;
 }
 
+.theme-right h2{
+  color:#333;
+}
+
 .comments-num{
+  color:#333;
   font-size: 30px;
   margin-bottom: 10px;
 }

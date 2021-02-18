@@ -11,15 +11,25 @@
   </div>
 
   <div class="theme-index">
-    <div class="search-form">
-      <p>テーマを検索する</p>
-      <%= form_with url:search_themes_path,local: true,class: "search-input", method: :get do |f|%>
-        <%= f.text_area :keyword, class:"search-text" %>
-        <%= f.submit "検索", class:"search-submit" %>
-      <% end %>
+    <div class="form-content">
+      <div class="search-form">
+        <p>テーマを検索する</p>
+        <%= form_with url:search_themes_path,local: true,class: "search-input", method: :get do |f|%>
+          <%= f.text_area :keyword, class:"search-text" %>
+          <%= f.submit "検索", class:"search-submit" %>
+        <% end %>
+      </div>
+      <div class="theme-sort-wrap">
+        <p>並べ替え</p>
+        <select class="theme-sort-menu" name="theme-sort" id="theme-sort">
+          <option value="#">---</option>
+          <option value="many">コメントの多い順</option>
+          <option value="few">コメントの少ない順</option>
+        </select>
+      </div>
     </div>
 
-    <div class="users-theme">
+    <div class="users-theme" id = "theme-area">
       <%= render partial: "shared/themes", collection: @themes%>
     </div>
 

@@ -51,12 +51,18 @@ a{
   width: 75%;
 }
 
-.search-form{
+.form-content{
   width: 100%;
   height: 50px;
   padding-left: 20px;
   margin-bottom: 5px;
   border-bottom: 3px solid #4a5261;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-form{
   display: flex;
   align-items: center;
 }
@@ -84,3 +90,17 @@ a{
   display: block;
 }
 
+.theme-sort-wrap{
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-sort-wrap p{
+  color: white;
+}
+
+.theme-sort-menu{
+  height: 30px;
+  margin-left: 20px;
+}

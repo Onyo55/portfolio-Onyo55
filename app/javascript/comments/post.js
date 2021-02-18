@@ -63,5 +63,4 @@ function post(){
   }
 }
 
-window.addEventListener('load', post)
 window.addEventListener("turbolinks:load", post)

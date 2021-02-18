@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("comments/sort")
 require("comments/post")
+require("theme/theme_sort")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

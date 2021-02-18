@@ -1,4 +1,5 @@
 function sort (){
+  console.log("neko")
   if(document.URL.match(/themes\/\d/)){
     const comBox = document.getElementById("com-box")
     const btnNew = document.getElementById("new")
@@ -86,5 +87,4 @@ function sort (){
   }
 }
 
-window.addEventListener('load', sort)
-window.addEventListener("turbolinks:load", sort)
+window.addEventListener("turbolinks:load", sort) 
