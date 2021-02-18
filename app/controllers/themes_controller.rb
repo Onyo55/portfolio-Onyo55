@@ -2,7 +2,7 @@ class ThemesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @themes = Theme.all
+    @themes = Theme.all.includes(:comments)
   end
 
   def new
@@ -12,7 +12,7 @@ class ThemesController < ApplicationController
   def create
     @theme = Theme.new(theme_params)
     if @theme.save
-      redirect_to root_path
+      redirect_to theme_path(@theme.id)
     else
       render :new
     end
@@ -22,6 +22,19 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
     @comment = Comment.new
     @comments = @theme.comments.includes(:user).order('created_at DESC')
+  end
+
+  def destroy
+    theme = Theme.find(params[:id])
+    if current_user.id == theme.user.id
+      if theme.destroy
+        redirect_back(fallback_location: root_path)
+      else
+        render :index
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def search

@@ -1,11 +1,12 @@
 function sort (){
+  console.log("neko")
   if(document.URL.match(/themes\/\d/)){
     const comBox = document.getElementById("com-box")
     const btnNew = document.getElementById("new")
     const btnOld = document.getElementById("old")
     const btnDcNew = document.getElementById("dc-new")
     const btnDcOld = document.getElementById("dc-old")
-  
+
     btnNew.addEventListener('click', function(){
       let changeComments = newCom()
       changeComments.sort(orderAsc)
@@ -86,5 +87,4 @@ function sort (){
   }
 }
 
-window.addEventListener('load', sort)
-window.addEventListener("turbolinks:load", sort)
+window.addEventListener("turbolinks:load", sort) 

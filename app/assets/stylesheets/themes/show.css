@@ -67,7 +67,9 @@
 
 .menu-wrap{
   width: 25%;
+  
   padding-top: 15px;
+  
 }
 
 .post-text-area{
@@ -84,6 +86,7 @@
 
 .content-wrap{
   display: flex;
+  
 } 
 
 .menu-box{
@@ -145,8 +148,8 @@
 .comment-area{
   width: 50%;
   padding:0 10px;
-  border-left: 3px solid #4a5261;
   border-right: 3px solid #4a5261;
+  border-left: 3px solid #4a5261;
 }
 
 .message-text{
