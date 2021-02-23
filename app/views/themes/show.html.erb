@@ -7,13 +7,16 @@
       <div class="menu-box">
         <h2 class="sort-text">並べ替え</h2>
         <div class="sort-menu">
+          <p>通常</p>
           <ul>
             <li><button type = "button" id="new">投稿の新しい順</button></li>
             <li><button type = "button" id="old">投稿の古い順</button></li>
-          </ul>
+            </ul>
+          <p>色が連続しない</p>
           <ul>
-            <li><button type = "button" id="dc-new">色の連続なし投稿の新しい順</button></li>
-            <li><button type = "button" id="dc-old">色の連続なし投稿の古い順</button></li>
+            <li><button type = "button" id="dc-new">投稿の新しい順</button></li>
+            <li><button type = "button" id="dc-old">投稿の古い順</button></li>
+          </ul>
         </div>
       </div> 
     </div>
@@ -70,7 +73,7 @@
 
     <div class="theme-wrap">
       <div class="theme-box">
-        <h1 class="main-theme-show">テーマ</h1>
+        <h1 class="main-theme-show"><%=@theme.main_theme%></h1>
         <ul class="sub-theme-show">
           <li class="sub-blue"><%=@theme.sub_theme_1%></li>
           <li class="sub-or">or</li>

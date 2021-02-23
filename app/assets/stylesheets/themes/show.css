@@ -24,7 +24,7 @@
 }
 
 .main-theme-show{
-  font-size: 35px
+  font-size: 180%;
 }
 
 .sub-theme-show{
@@ -92,9 +92,15 @@
 .menu-box{
   width: 23%;
   height: 300px; 
+  padding:20px;
   background-color: #DCE3DE; 
   border-radius: 10px;
   position: fixed;
+}
+
+.sort-menu p{
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
 }
 
 .comment-box{
@@ -137,7 +143,7 @@
 .sort-text{
   padding-bottom: 5px;
   border-bottom: 1px solid black;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .comment-info{
