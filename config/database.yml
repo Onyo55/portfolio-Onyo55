@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: portfolio_Onyo55_production
-  username: portfolio_Onyo55
-  password: <%= ENV['PORTFOLIO_ONYO55_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
